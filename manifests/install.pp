@@ -34,10 +34,8 @@ class kibana::install {
           location => "${_repo_baseurl}/${_repo_path}",
           release  => 'stable',
           repos    => 'main',
-          key      => {
-            'id'     => $::kibana::repo_key_id,
-            'source' => $::kibana::repo_key_source,
-          },
+          key      => $::kibana::repo_key_id,
+          key_source => $::kibana::repo_key_source,
           include  => {
             'src' => false,
             'deb' => true,
