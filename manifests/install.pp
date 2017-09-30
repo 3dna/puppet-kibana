@@ -36,10 +36,8 @@ class kibana::install {
           repos    => 'main',
           key      => $::kibana::repo_key_id,
           key_source => $::kibana::repo_key_source,
-          include  => {
-            'src' => false,
-            'deb' => true,
-          },
+          include_src => false,
+          include_deb => true,
           pin      => $::kibana::repo_priority,
           before   => Package['kibana'],
         }
